@@ -9,21 +9,32 @@
 /* Begin PBXBuildFile section */
 		15D9A76A2C3406D300EFA0B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7692C3406D300EFA0B5 /* AppDelegate.swift */; };
 		15D9A76C2C3406D300EFA0B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A76B2C3406D300EFA0B5 /* SceneDelegate.swift */; };
-		15D9A76E2C3406D300EFA0B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A76D2C3406D300EFA0B5 /* ViewController.swift */; };
-		15D9A7712C3406D300EFA0B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D9A76F2C3406D300EFA0B5 /* Main.storyboard */; };
 		15D9A7732C3406D400EFA0B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D9A7722C3406D400EFA0B5 /* Assets.xcassets */; };
 		15D9A7762C3406D400EFA0B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D9A7742C3406D400EFA0B5 /* LaunchScreen.storyboard */; };
+		15D9A7812C340A5500EFA0B5 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7802C340A5500EFA0B5 /* LoadScreenViewController.swift */; };
+		15D9A7842C340DFB00EFA0B5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 15D9A7832C340DFB00EFA0B5 /* SnapKit */; };
+		15D9A7872C3415A000EFA0B5 /* ReviewerOnbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7862C3415A000EFA0B5 /* ReviewerOnbViewController.swift */; };
+		15D9A7892C34399B00EFA0B5 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7882C34399B00EFA0B5 /* NewUserViewController.swift */; };
+		15D9A78C2C3450B200EFA0B5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A78B2C3450B200EFA0B5 /* TabBarViewController.swift */; };
+		15D9A78F2C345FE800EFA0B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A78E2C345FE800EFA0B5 /* User.swift */; };
+		15D9A7922C34660700EFA0B5 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7912C34660700EFA0B5 /* StatisticsViewController.swift */; };
+		15D9A7942C346CDE00EFA0B5 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7932C346CDE00EFA0B5 /* StatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		15D9A7662C3406D300EFA0B5 /* inkaBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inkaBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D9A7692C3406D300EFA0B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D9A76B2C3406D300EFA0B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		15D9A76D2C3406D300EFA0B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		15D9A7702C3406D300EFA0B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15D9A7722C3406D400EFA0B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15D9A7752C3406D400EFA0B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15D9A7772C3406D400EFA0B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15D9A7802C340A5500EFA0B5 /* LoadScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadScreenViewController.swift; sourceTree = "<group>"; };
+		15D9A7862C3415A000EFA0B5 /* ReviewerOnbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewerOnbViewController.swift; sourceTree = "<group>"; };
+		15D9A7882C34399B00EFA0B5 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		15D9A78B2C3450B200EFA0B5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		15D9A78E2C345FE800EFA0B5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		15D9A7912C34660700EFA0B5 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		15D9A7932C346CDE00EFA0B5 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D9A7842C340DFB00EFA0B5 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +52,7 @@
 		15D9A75D2C3406D300EFA0B5 = {
 			isa = PBXGroup;
 			children = (
+				15D9A78D2C345FDD00EFA0B5 /* Model */,
 				15D9A7682C3406D300EFA0B5 /* inkaBet */,
 				15D9A7672C3406D300EFA0B5 /* Products */,
 			);
@@ -56,15 +69,67 @@
 		15D9A7682C3406D300EFA0B5 /* inkaBet */ = {
 			isa = PBXGroup;
 			children = (
-				15D9A7692C3406D300EFA0B5 /* AppDelegate.swift */,
-				15D9A76B2C3406D300EFA0B5 /* SceneDelegate.swift */,
-				15D9A76D2C3406D300EFA0B5 /* ViewController.swift */,
-				15D9A76F2C3406D300EFA0B5 /* Main.storyboard */,
-				15D9A7722C3406D400EFA0B5 /* Assets.xcassets */,
-				15D9A7742C3406D400EFA0B5 /* LaunchScreen.storyboard */,
-				15D9A7772C3406D400EFA0B5 /* Info.plist */,
+				15D9A7902C3465E700EFA0B5 /* Statistics */,
+				15D9A78A2C34509400EFA0B5 /* TabBar */,
+				15D9A7852C34158600EFA0B5 /* ReviewerOnb */,
+				15D9A77F2C34092500EFA0B5 /* LoadScreen */,
+				15D9A77E2C34077400EFA0B5 /* Support */,
 			);
 			path = inkaBet;
+			sourceTree = "<group>";
+		};
+		15D9A77E2C34077400EFA0B5 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A7722C3406D400EFA0B5 /* Assets.xcassets */,
+				15D9A7772C3406D400EFA0B5 /* Info.plist */,
+				15D9A7742C3406D400EFA0B5 /* LaunchScreen.storyboard */,
+				15D9A76B2C3406D300EFA0B5 /* SceneDelegate.swift */,
+				15D9A7692C3406D300EFA0B5 /* AppDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		15D9A77F2C34092500EFA0B5 /* LoadScreen */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A7802C340A5500EFA0B5 /* LoadScreenViewController.swift */,
+			);
+			path = LoadScreen;
+			sourceTree = "<group>";
+		};
+		15D9A7852C34158600EFA0B5 /* ReviewerOnb */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A7862C3415A000EFA0B5 /* ReviewerOnbViewController.swift */,
+				15D9A7882C34399B00EFA0B5 /* NewUserViewController.swift */,
+			);
+			path = ReviewerOnb;
+			sourceTree = "<group>";
+		};
+		15D9A78A2C34509400EFA0B5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A78B2C3450B200EFA0B5 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		15D9A78D2C345FDD00EFA0B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A78E2C345FE800EFA0B5 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		15D9A7902C3465E700EFA0B5 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A7912C34660700EFA0B5 /* StatisticsViewController.swift */,
+				15D9A7932C346CDE00EFA0B5 /* StatView.swift */,
+			);
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +148,9 @@
 			dependencies = (
 			);
 			name = inkaBet;
+			packageProductDependencies = (
+				15D9A7832C340DFB00EFA0B5 /* SnapKit */,
+			);
 			productName = inkaBet;
 			productReference = 15D9A7662C3406D300EFA0B5 /* inkaBet.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +179,9 @@
 				Base,
 			);
 			mainGroup = 15D9A75D2C3406D300EFA0B5;
+			packageReferences = (
+				15D9A7822C340DFB00EFA0B5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 15D9A7672C3406D300EFA0B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +198,6 @@
 			files = (
 				15D9A7762C3406D400EFA0B5 /* LaunchScreen.storyboard in Resources */,
 				15D9A7732C3406D400EFA0B5 /* Assets.xcassets in Resources */,
-				15D9A7712C3406D300EFA0B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +208,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15D9A76E2C3406D300EFA0B5 /* ViewController.swift in Sources */,
 				15D9A76A2C3406D300EFA0B5 /* AppDelegate.swift in Sources */,
+				15D9A7872C3415A000EFA0B5 /* ReviewerOnbViewController.swift in Sources */,
+				15D9A7892C34399B00EFA0B5 /* NewUserViewController.swift in Sources */,
+				15D9A7942C346CDE00EFA0B5 /* StatView.swift in Sources */,
+				15D9A7922C34660700EFA0B5 /* StatisticsViewController.swift in Sources */,
+				15D9A7812C340A5500EFA0B5 /* LoadScreenViewController.swift in Sources */,
+				15D9A78C2C3450B200EFA0B5 /* TabBarViewController.swift in Sources */,
 				15D9A76C2C3406D300EFA0B5 /* SceneDelegate.swift in Sources */,
+				15D9A78F2C345FE800EFA0B5 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		15D9A76F2C3406D300EFA0B5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				15D9A7702C3406D300EFA0B5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		15D9A7742C3406D400EFA0B5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,12 +362,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6YA7577C98;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = inkaBet/Info.plist;
+				INFOPLIST_FILE = inkaBet/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,6 +375,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = k.inkaBet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,12 +393,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6YA7577C98;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = inkaBet/Info.plist;
+				INFOPLIST_FILE = inkaBet/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,6 +406,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = k.inkaBet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -363,6 +437,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15D9A7822C340DFB00EFA0B5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15D9A7832C340DFB00EFA0B5 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15D9A7822C340DFB00EFA0B5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 15D9A75E2C3406D300EFA0B5 /* Project object */;
 }
