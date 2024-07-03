@@ -70,7 +70,7 @@ class EditUserViewController: UIViewController {
         
         let createLabel: UILabel = {
             let label = UILabel()
-            label.text = "Create profile"
+            label.text = "Edit profile"
             label.font = .systemFont(ofSize: 17, weight: .semibold)
             label.textColor = UIColor(red: 242/255, green: 242/255, blue: 246/255, alpha: 1)
             return label

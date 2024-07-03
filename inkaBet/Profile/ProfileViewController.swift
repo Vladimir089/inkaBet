@@ -112,12 +112,37 @@ class ProfileViewController: UIViewController {
         stackViewOne.addArrangedSubview(oneView)
         stackViewOne.addArrangedSubview(twoView)
         
+        
+        
+        var stackViewTwo: UIStackView = {
+            let stack = UIStackView()
+            stack.axis = .horizontal
+            stack.spacing = 15
+            stack.distribution = .fillEqually
+            return stack
+        }()
+        view.addSubview(stackViewTwo)
+        stackViewTwo.snp.makeConstraints { make in
+            make.height.equalTo(86)
+            make.left.right.equalToSuperview().inset(15)
+            make.top.equalTo(stackViewOne.snp.bottom).inset(-15)
+        }
+        let threeView = createView(tag: 3)
+        let fourView = createView(tag: 4)
+        stackViewTwo.addArrangedSubview(threeView)
+        stackViewTwo.addArrangedSubview(fourView)
+        
+        
     }
     
     func updateView() {
         let image = UIImage(data: person?.image ?? Data()) ?? UIImage.standart
         imageProfileView?.image = image
         nameLabel?.text = person?.name ?? "Anonim"
+        ageLabel?.text = "\(person?.age ?? 0)"
+        weightLabel?.text = "\(person?.weight ?? 0)"
+        heightLabel?.text = "\(person?.height ?? 0)"
+        normLabel?.text = "\(person?.norm ?? 0) "
         
     }
     
@@ -182,15 +207,56 @@ extension ProfileViewController {
             imageView.image = .one
             labelBot.text = "Full years"
             
-            //СДЕЛАТЬ ВСЕ ОСТАЛЬНОЕ ПО АНАЛОГИИ 
-            
         case 2:
+            
+            weightLabel = UILabel()
+            weightLabel?.font = .systemFont(ofSize: 22, weight: .bold)
+            weightLabel?.textColor = .white
+            weightLabel?.text = "\(person?.weight ?? 0)"
+            view.addSubview(weightLabel!)
+            weightLabel?.snp.makeConstraints({ make in
+                make.left.equalTo(imageView.snp.right).inset(-15)
+                make.bottom.equalTo(imageView.snp.centerY).offset(3)
+            })
+            
+            
             imageView.image = .two
             labelBot.text = "Weight"
         case 3:
+            heightLabel = UILabel()
+            heightLabel?.font = .systemFont(ofSize: 22, weight: .bold)
+            heightLabel?.textColor = .white
+            heightLabel?.text = "\(person?.height ?? 0)"
+            view.addSubview(heightLabel!)
+            heightLabel?.snp.makeConstraints({ make in
+                make.left.equalTo(imageView.snp.right).inset(-15)
+                make.bottom.equalTo(imageView.snp.centerY).offset(3)
+            })
+            
             imageView.image = .three
             labelBot.text = "Height"
         case 4:
+            normLabel = UILabel()
+            normLabel?.font = .systemFont(ofSize: 22, weight: .bold)
+            normLabel?.textColor = .white
+            normLabel?.text = "\(person?.norm ?? 0)"
+            view.addSubview(normLabel!)
+            normLabel?.snp.makeConstraints({ make in
+                make.left.equalTo(imageView.snp.right).inset(-15)
+                make.bottom.equalTo(imageView.snp.centerY).offset(3)
+            })
+            
+            
+            let kcalLabel = UILabel()
+            kcalLabel.text = "Kkal"
+            kcalLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+            kcalLabel.textColor = .white.withAlphaComponent(0.7)
+            normLabel?.addSubview(kcalLabel)
+            kcalLabel.snp.makeConstraints { make in
+                make.left.equalTo(normLabel!.snp.right)
+                make.bottom.equalToSuperview().inset(2)
+            }
+            
             imageView.image = .four
             labelBot.text = "Daily norm"
         default:

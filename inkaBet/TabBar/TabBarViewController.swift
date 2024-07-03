@@ -10,6 +10,7 @@ import UIKit
 var person: User?
 var kcalToday = 0
 var achivementCompleted = 0
+var achivementArr: [Bool] = [] //массив который будет содержать какое достижение выполнилось а какое нет вида [false, false, false, true] и тд
 
 class TabBarViewController: UITabBarController {
 
