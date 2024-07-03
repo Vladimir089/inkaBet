@@ -8,6 +8,8 @@
 import UIKit
 
 var person: User?
+var kcalToday = 0
+var achivementCompleted = 0
 
 class TabBarViewController: UITabBarController {
 
@@ -25,9 +27,6 @@ class TabBarViewController: UITabBarController {
         
         let statVC = StatisticsViewController()
         let onetabItem = UITabBarItem(title: "", image: .stat.resize(targetSize: CGSize(width: 44, height: 44)), tag: 0)
-        
-        
-        
         onetabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
         onetabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
         statVC.tabBarItem = onetabItem
@@ -41,7 +40,15 @@ class TabBarViewController: UITabBarController {
         
         
         
-        viewControllers = [statVC]
+        let personVC = ProfileViewController()
+        let twoTabItem = UITabBarItem(title: "", image: .person.resize(targetSize: CGSize(width: 20, height: 21)), tag: 1)
+        twoTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
+        twoTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
+        personVC.tabBarItem = twoTabItem
+        
+        
+        
+        viewControllers = [statVC, personVC]
         
     }
     

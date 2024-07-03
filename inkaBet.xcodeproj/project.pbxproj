@@ -19,6 +19,8 @@
 		15D9A78F2C345FE800EFA0B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A78E2C345FE800EFA0B5 /* User.swift */; };
 		15D9A7922C34660700EFA0B5 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7912C34660700EFA0B5 /* StatisticsViewController.swift */; };
 		15D9A7942C346CDE00EFA0B5 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7932C346CDE00EFA0B5 /* StatView.swift */; };
+		15D9A7972C35773D00EFA0B5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7962C35773D00EFA0B5 /* ProfileViewController.swift */; };
+		15D9A7992C358B1E00EFA0B5 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7982C358B1E00EFA0B5 /* EditUserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		15D9A78E2C345FE800EFA0B5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		15D9A7912C34660700EFA0B5 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		15D9A7932C346CDE00EFA0B5 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
+		15D9A7962C35773D00EFA0B5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		15D9A7982C358B1E00EFA0B5 /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 		15D9A7682C3406D300EFA0B5 /* inkaBet */ = {
 			isa = PBXGroup;
 			children = (
+				15D9A7952C35772500EFA0B5 /* Profile */,
 				15D9A7902C3465E700EFA0B5 /* Statistics */,
 				15D9A78A2C34509400EFA0B5 /* TabBar */,
 				15D9A7852C34158600EFA0B5 /* ReviewerOnb */,
@@ -130,6 +135,15 @@
 				15D9A7932C346CDE00EFA0B5 /* StatView.swift */,
 			);
 			path = Statistics;
+			sourceTree = "<group>";
+		};
+		15D9A7952C35772500EFA0B5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A7962C35773D00EFA0B5 /* ProfileViewController.swift */,
+				15D9A7982C358B1E00EFA0B5 /* EditUserViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +224,9 @@
 			files = (
 				15D9A76A2C3406D300EFA0B5 /* AppDelegate.swift in Sources */,
 				15D9A7872C3415A000EFA0B5 /* ReviewerOnbViewController.swift in Sources */,
+				15D9A7972C35773D00EFA0B5 /* ProfileViewController.swift in Sources */,
 				15D9A7892C34399B00EFA0B5 /* NewUserViewController.swift in Sources */,
+				15D9A7992C358B1E00EFA0B5 /* EditUserViewController.swift in Sources */,
 				15D9A7942C346CDE00EFA0B5 /* StatView.swift in Sources */,
 				15D9A7922C34660700EFA0B5 /* StatisticsViewController.swift in Sources */,
 				15D9A7812C340A5500EFA0B5 /* LoadScreenViewController.swift in Sources */,

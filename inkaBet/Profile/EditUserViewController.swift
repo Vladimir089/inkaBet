@@ -1,25 +1,24 @@
 //
-//  NewUserViewController.swift
+//  EditUserViewController.swift
 //  inkaBet
 //
-//  Created by Владимир Кацап on 02.07.2024.
+//  Created by Владимир Кацап on 03.07.2024.
 //
 
 import UIKit
 
-class NewUserViewController: UIViewController {
+class EditUserViewController: UIViewController {
     
     var avatarImageView: UIImageView?
     var nameTextField, weightTextField, heightTextField, normTextField, ageTextField: UITextField?
     var saveButton: UIButton?
     
-    var delegate: OnboardingContentViewControllerDelegate?
+    var delegate: ProfileViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         createInterface()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -83,7 +82,7 @@ class NewUserViewController: UIViewController {
         }
         
         avatarImageView = {
-            let image = UIImage.standart
+            let image = UIImage(data: person?.image ?? Data()) ?? UIImage.standart
             let imageView = UIImageView(image: image)
             imageView.clipsToBounds = true
             imageView.backgroundColor = .bgSecond
@@ -114,6 +113,7 @@ class NewUserViewController: UIViewController {
         }
         
         nameTextField = createTextField(text: "Name")
+        nameTextField?.text = person?.name ?? ""
         view.addSubview(nameTextField!)
         nameTextField?.snp.makeConstraints({ make in
             make.height.equalTo(54)
@@ -123,6 +123,9 @@ class NewUserViewController: UIViewController {
         
         weightTextField = createTextField(text: "Weight (Kg)")
         weightTextField?.keyboardType = .numberPad
+        if person?.weight != nil {
+            weightTextField?.text = String(person!.weight)
+        }
         view.addSubview(weightTextField!)
         weightTextField?.snp.makeConstraints({ make in
             make.height.equalTo(54)
@@ -132,6 +135,9 @@ class NewUserViewController: UIViewController {
         
         heightTextField = createTextField(text: "Height")
         heightTextField?.keyboardType = .numberPad
+        if person?.height != nil {
+            heightTextField?.text = String(person!.height)
+        }
         view.addSubview(heightTextField!)
         heightTextField?.snp.makeConstraints({ make in
             make.height.equalTo(54)
@@ -141,6 +147,9 @@ class NewUserViewController: UIViewController {
         
         normTextField = createTextField(text: "Daily norm (Kkal)")
         normTextField?.keyboardType = .numberPad
+        if person?.norm != nil {
+            normTextField?.text = String(person!.norm)
+        }
         view.addSubview(normTextField!)
         normTextField?.snp.makeConstraints({ make in
             make.height.equalTo(54)
@@ -150,6 +159,9 @@ class NewUserViewController: UIViewController {
         
         ageTextField = createTextField(text: "Full years")
         ageTextField?.keyboardType = .numberPad
+        if person?.age != nil {
+            ageTextField?.text = String(person!.age)
+        }
         view.addSubview(ageTextField!)
         ageTextField?.snp.makeConstraints({ make in
             make.height.equalTo(54)
@@ -229,6 +241,7 @@ class NewUserViewController: UIViewController {
         }
         
         let user = User(name: name, weight: weight, height: height, norm: norm, image: imageData, age: age)
+        person = user
         do {
             let userData = try JSONEncoder().encode(user)
             UserDefaults.standard.set(userData, forKey: "userProfile")
@@ -239,13 +252,11 @@ class NewUserViewController: UIViewController {
             print("Failed to save user: \(error)")
         }
     }
-    
 
 }
 
 
-
-extension NewUserViewController: UITextFieldDelegate {
+extension EditUserViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         check()
@@ -253,7 +264,7 @@ extension NewUserViewController: UITextFieldDelegate {
     }
 }
 
-extension NewUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
            if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                let resizedImage = resizeImage(image: selectedImage, targetSize: CGSize(width: selectedImage.size.width * 0.3, height: selectedImage.size.height * 0.3))

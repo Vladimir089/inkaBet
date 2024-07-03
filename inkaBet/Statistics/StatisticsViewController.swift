@@ -5,6 +5,8 @@
 //  Created by Владимир Кацап on 02.07.2024.
 //
 
+
+
 import UIKit
 
 protocol StatisticsViewControllerDelegate: AnyObject {
@@ -31,6 +33,7 @@ class StatisticsViewController: UIViewController {
         mainView?.delegate = self
         self.view = mainView
         loadDataWaterAndSteps()
+        print(person)
     }
     
 

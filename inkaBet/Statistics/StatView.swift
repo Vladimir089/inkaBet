@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class StatView: UIView {
     
     var delegate: StatisticsViewControllerDelegate?
@@ -17,6 +19,10 @@ class StatView: UIView {
     var midView: UIView?
     let semiCircularProgressView = SemiCircularProgressView()
     var endProgressView: UIView?
+    var kcalLabel: UILabel?
+    var dailyNormLabel: GradientLabel?
+    var acivementsLabel: UILabel?
+    var achivementProgress: GradientProgressView?
     
     var progressRotation = 0
     
@@ -125,8 +131,8 @@ class StatView: UIView {
         startProgressView.snp.makeConstraints { make in
             make.height.equalTo(5)
             make.width.equalTo(26)
-            make.bottom.equalTo(semiCircularProgressView.snp.bottom).inset(1.5)
-            make.left.equalTo(semiCircularProgressView.snp.left).inset(12)
+            make.bottom.equalTo(semiCircularProgressView.snp.bottom).inset(-1)
+            make.left.equalTo(semiCircularProgressView.snp.left).inset(13)
         }
         
         endProgressView = {
@@ -144,40 +150,168 @@ class StatView: UIView {
             make.right.equalTo(semiCircularProgressView.snp.right).inset(13)
         }
         
+        let spendTodayLabel: UILabel = {
+            let label = UILabel()
+            label.text = "SPENT TODAY:"
+            label.font = .systemFont(ofSize: 16, weight: .regular)
+            label.textColor = .white.withAlphaComponent(0.4)
+            return label
+        }()
+        semiCircularProgressView.addSubview(spendTodayLabel)
+        spendTodayLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-30)
+        }
         
-//        // Пример добавления дополнительного контента для проверки прокрутки
-//                let additionalView = UIView()
-//                additionalView.backgroundColor = .red
-//                contentView.addSubview(additionalView)
-//                additionalView.snp.makeConstraints { make in
-//                    make.top.equalTo(stackView.snp.bottom).offset(20)
-//                    make.left.right.equalToSuperview()
-//                    make.height.equalTo(5000) // Добавляем высоту, чтобы контент был прокручиваемым
-//                    make.bottom.equalToSuperview()
-//                }
+        kcalLabel = {
+            let label = UILabel()
+            label.text = "\(kcalToday)"
+            label.font = .systemFont(ofSize: 50, weight: .bold)
+            label.textColor = .white
+            
+            let kcal = UILabel()
+            kcal.text = "Kcal"
+            kcal.font = .systemFont(ofSize: 26, weight: .regular)
+            kcal.textColor = .white.withAlphaComponent(0.4)
+            label.addSubview(kcal)
+            kcal.snp.makeConstraints { make in
+                make.left.equalTo(label.snp.right)
+                make.top.equalTo(label.snp.centerY).offset(-7)
+            }
+            return label
+        }()
+        semiCircularProgressView.addSubview(kcalLabel!)
+        kcalLabel?.snp.makeConstraints { make in
+            make.centerX.equalToSuperview().offset(-25)
+            make.centerY.equalToSuperview().offset(30)
+        }
+        
+        
+        dailyNormLabel = {
+            let label = GradientLabel()
+            label.text = "Daily norm: \(person?.norm ?? 0) Kcal"
+            label.font = .systemFont(ofSize: 15, weight: .semibold)
+            label.textAlignment = .center // Убедитесь, что текст выровнен по центру, если необходимо
+            return label
+        }()        
+        semiCircularProgressView.addSubview(dailyNormLabel!)
+        dailyNormLabel?.snp.makeConstraints({ make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview()
+        })
+        
+        
+        var achivementView: UIView = {
+            let view = UIView()
+            view.backgroundColor = .BG
+            view.layer.cornerRadius = 24
+            return view
+        }()
+        contentView.addSubview(achivementView)
+        achivementView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(15)
+            make.height.equalTo(110)
+            make.top.equalTo(midView!.snp.bottom).inset(-10)
+        }
+        let labelAch: UILabel = {
+            let label = UILabel()
+            label.text = "Achivements"
+            label.font = .systemFont(ofSize: 20, weight: .bold)
+            label.textColor = .white
+            return label
+        }()
+        achivementView.addSubview(labelAch)
+        labelAch.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(15)
+            make.top.equalToSuperview().inset(20)
+        }
+        
+        
+
+        let additionalView = UIView()
+        contentView.addSubview(additionalView)
+        additionalView.snp.makeConstraints { make in
+            make.top.equalTo(achivementView.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(100)
+            make.bottom.equalToSuperview()
+        }
+        
+        acivementsLabel = {
+            let label = UILabel()
+            label.text = "\(achivementCompleted)/8"
+            label.textColor = UIColor(red: 42/255, green: 216/255, blue: 143/255, alpha: 1)
+            label.font = .systemFont(ofSize: 17, weight: .regular)
+            return label
+        }()
+        achivementView.addSubview(acivementsLabel!)
+        acivementsLabel?.snp.makeConstraints({ make in
+            make.centerY.equalTo(labelAch.snp.centerY)
+            make.left.equalTo(labelAch.snp.right).inset(-5)
+        })
+        
+        let achivImageView: UIImageView = {
+            let image: UIImage = .aciv
+            let imageView = UIImageView(image: image)
+            imageView.contentMode = .scaleAspectFit
+            return imageView
+        }()
+        achivementView.addSubview(achivImageView)
+        achivImageView.snp.makeConstraints { make in
+            make.height.width.equalTo(25)
+            make.right.equalToSuperview().inset(15)
+            make.top.equalToSuperview().inset(20)
+        }
+        
+        achivementProgress = {
+            let progress = GradientProgressView()
+            progress.tintColor = UIColor(red: 111/255, green: 111/255, blue: 111/255, alpha: 1)
+            progress.clipsToBounds = true
+            progress.layer.cornerRadius = 3
+            return progress
+        }()
+        achivementView.addSubview(achivementProgress!)
+        achivementProgress?.snp.makeConstraints({ make in
+            make.left.right.equalToSuperview().inset(15)
+            make.height.equalTo(6)
+            make.bottom.equalToSuperview().inset(20)
+        })
+        achivementProgress?.setProgress(Float(achivementCompleted / 8), animated: true)
+        
+        
+        
+        
+        
         updateProgress()
     }
     
     @objc func openWater() {
         delegate?.openWater()
-//        semiCircularProgressView.progress -= 0.1
-//        updateProgress()
+        //        semiCircularProgressView.progress -= 0.1
+        //        updateProgress()
     }
     
     @objc func openSteps() {
         delegate?.openSteps()
-//        semiCircularProgressView.progress += 0.1
-//        updateProgress()
+//        kcalToday += 100
+//        
+//        kcalLabel?.text = "\(kcalToday / (person?.norm ?? 1))"
+//                semiCircularProgressView.progress += 0.1
+//                updateProgress()
     }
     
     func updateProgress() {
-
+        
         if  semiCircularProgressView.progress >= 0.96 {
             endProgressView?.alpha = 1
         } else if semiCircularProgressView.progress <= 0.96 {
             endProgressView?.alpha = 0
         }
-
+        
+        kcalLabel?.text = "\(kcalToday)"
+        dailyNormLabel?.text = "Daily norm: \(person?.norm ?? 0) Kcal"
+        acivementsLabel?.text = "\(achivementCompleted)/8"
+        achivementProgress?.setProgress(Float(achivementCompleted / 8), animated: true)
     }
     
     
@@ -263,7 +397,7 @@ class StatView: UIView {
                 progress.clipsToBounds = true
                 progress.tintColor = UIColor(red: 111/255, green: 111/255, blue: 111/255, alpha: 1)
                 progress.setProgress(Float(stepCount ?? 0), animated: true)
-               
+                
                 return progress
             }()
             view.addSubview(stepProgress!)
@@ -392,7 +526,7 @@ class SemiCircularProgressView: UIView {
             setNeedsLayout()
         }
     }
-
+    
     private let gradientLayer = CAGradientLayer()
     private let progressShapeLayer = CAShapeLayer()
     private let divisionsShapeLayer = CAShapeLayer()
@@ -521,3 +655,68 @@ class SemiCircularProgressView: UIView {
         }
     }
 }
+
+
+class GradientLabel: UILabel {
+    var gradientColors: [CGColor] = [
+        UIColor(red: 255/255, green: 191/255, blue: 26/255, alpha: 1).cgColor,
+        UIColor(red: 255/255, green: 64/255, blue: 128/255, alpha: 1).cgColor
+    ]
+    
+    override func draw(_ rect: CGRect) {
+        guard let context = UIGraphicsGetCurrentContext() else {
+            super.draw(rect)
+            return
+        }
+        
+        // Создаем градиент
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientLayer.frame = rect
+        
+        // Создаем текстовый слой
+        let textLayer = CATextLayer()
+        textLayer.frame = rect
+        textLayer.string = text
+        textLayer.font = font
+        textLayer.fontSize = font.pointSize
+        textLayer.alignmentMode = .center
+        textLayer.contentsScale = UIScreen.main.scale
+        
+        // Устанавливаем текстовый слой как маску для градиентного слоя
+        gradientLayer.mask = textLayer
+        
+        // Рисуем градиентный слой в контексте
+        gradientLayer.render(in: context)
+    }
+}
+
+
+import UIKit
+
+let achievementProgress: UIProgressView = {
+    let progress = UIProgressView()
+    progress.tintColor = UIColor(red: 111/255, green: 111/255, blue: 111/255, alpha: 1)
+    progress.clipsToBounds = true
+    progress.layer.cornerRadius = 3
+    
+    // Создаем градиентный слой
+    let gradientLayer = CAGradientLayer()
+    gradientLayer.colors = [
+        UIColor(red: 42/255, green: 216/255, blue: 143/255, alpha: 1).cgColor,
+        UIColor(red: 122/255, green: 215/255, blue: 78/255, alpha: 1).cgColor
+    ]
+    gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+    gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+    
+    // Устанавливаем размер градиентного слоя равным размеру прогресс-бара
+    gradientLayer.frame = CGRect(x: 0, y: 0, width: progress.frame.size.width, height: progress.frame.size.height)
+    
+    // Добавляем градиентный слой на слой прогресс-бара
+    progress.layer.addSublayer(gradientLayer)
+    
+    return progress
+}()
+
