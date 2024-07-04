@@ -24,6 +24,7 @@
 		15D9A79C2C36CC9800EFA0B5 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A79B2C36CC9800EFA0B5 /* WorkoutViewController.swift */; };
 		15D9A79E2C36CE3C00EFA0B5 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A79D2C36CE3C00EFA0B5 /* Workout.swift */; };
 		15D9A7A02C36DEB300EFA0B5 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A79F2C36DEB300EFA0B5 /* NewWorkoutViewController.swift */; };
+		15D9A7A32C372CAE00EFA0B5 /* AcivementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7A22C372CAE00EFA0B5 /* AcivementsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		15D9A79B2C36CC9800EFA0B5 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		15D9A79D2C36CE3C00EFA0B5 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		15D9A79F2C36DEB300EFA0B5 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
+		15D9A7A22C372CAE00EFA0B5 /* AcivementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcivementsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		15D9A7682C3406D300EFA0B5 /* inkaBet */ = {
 			isa = PBXGroup;
 			children = (
+				15D9A7A12C372C9900EFA0B5 /* Acivements */,
 				15D9A79A2C36CC2300EFA0B5 /* Workour */,
 				15D9A7952C35772500EFA0B5 /* Profile */,
 				15D9A7902C3465E700EFA0B5 /* Statistics */,
@@ -163,6 +166,14 @@
 			path = Workour;
 			sourceTree = "<group>";
 		};
+		15D9A7A12C372C9900EFA0B5 /* Acivements */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A7A22C372CAE00EFA0B5 /* AcivementsViewController.swift */,
+			);
+			path = Acivements;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -242,6 +253,7 @@
 				15D9A79C2C36CC9800EFA0B5 /* WorkoutViewController.swift in Sources */,
 				15D9A76A2C3406D300EFA0B5 /* AppDelegate.swift in Sources */,
 				15D9A7872C3415A000EFA0B5 /* ReviewerOnbViewController.swift in Sources */,
+				15D9A7A32C372CAE00EFA0B5 /* AcivementsViewController.swift in Sources */,
 				15D9A79E2C36CE3C00EFA0B5 /* Workout.swift in Sources */,
 				15D9A7972C35773D00EFA0B5 /* ProfileViewController.swift in Sources */,
 				15D9A7A02C36DEB300EFA0B5 /* NewWorkoutViewController.swift in Sources */,

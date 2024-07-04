@@ -24,6 +24,9 @@ var workArr: [Workout] = []
 
 
 class TabBarViewController: UITabBarController {
+    
+    let calendar = Calendar.current
+    let today = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +70,16 @@ class TabBarViewController: UITabBarController {
         threeTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
         workoutVC.tabBarItem = threeTabItem
         
+        let achVC = AcivementsViewController()
+        let fourTabItem = UITabBarItem(title: "", image: .cup.resize(targetSize: CGSize(width: 23, height: 23)), tag: 1)
+        fourTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
+        fourTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
+        achVC.tabBarItem = fourTabItem
         
         
-        viewControllers = [workoutVC, statVC, personVC]
-        selectedIndex = 1
+        
+        viewControllers = [workoutVC, achVC, statVC, personVC, ]
+        selectedIndex = 2
         
     }
     
@@ -90,10 +99,19 @@ class TabBarViewController: UITabBarController {
                 let work = try JSONDecoder().decode([Workout].self, from: userData)
                 workArr = work
                 
-                for i in workArr {
-                    kcalToday += i.calories
-                }
+               
                 
+                for i in workArr {
+                    // Предполагаем, что i.date хранит дату в формате Date
+                    let dateComponents = calendar.dateComponents([.year, .month, .day], from: i.dete)
+                    let todayComponents = calendar.dateComponents([.year, .month, .day], from: today)
+                    
+                    if dateComponents.year == todayComponents.year &&
+                        dateComponents.month == todayComponents.month &&
+                        dateComponents.day == todayComponents.day {
+                        kcalToday += i.calories
+                    }
+                }
                 
                 
             } catch {

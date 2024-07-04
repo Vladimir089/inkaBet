@@ -102,7 +102,7 @@ class OnboardingContentViewController: UIViewController {
         
         imageView.contentMode = .scaleAspectFit
         textLabel.textAlignment = .left
-        textLabel.numberOfLines = 2
+        textLabel.numberOfLines = 3
         textLabel.font = .systemFont(ofSize: 34, weight: .bold)
         textLabel.textColor = .white
         
@@ -127,28 +127,32 @@ class OnboardingContentViewController: UIViewController {
     }
     
     func setupLayout() {
-        imageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(466)
-        }
         
         nextButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
             make.left.equalToSuperview().inset(30)
             make.height.equalTo(63)
-            make.width.equalTo(199)
-        }
-        
-        textLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(nextButton.snp.top).inset(-40)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.right.equalToSuperview().inset(150)
         }
         
         pageControl.snp.makeConstraints { make in
             make.centerY.equalTo(nextButton.snp.centerY)
-            make.leading.equalTo(nextButton.snp.trailing).inset(5)
+            make.right.equalToSuperview().inset(30)
+            
         }
+        
+        textLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(nextButton.snp.top).inset(-40)
+            make.left.right.equalToSuperview().inset(30)
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(textLabel.snp.top).inset(-30)
+        }
+        
+        
         
         if page == 3 {
             nextButton.addTarget(self, action: #selector(creteNewPerson), for: .touchUpInside)

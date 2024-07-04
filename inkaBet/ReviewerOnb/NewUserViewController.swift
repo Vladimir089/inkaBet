@@ -200,6 +200,7 @@ class NewUserViewController: UIViewController {
     
     @objc func hideKeyboard() {
         view.endEditing(true)
+        check()
     }
     
     @objc func changePhoto() {
@@ -207,6 +208,7 @@ class NewUserViewController: UIViewController {
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
+        check()
     }
     
     func check() {
