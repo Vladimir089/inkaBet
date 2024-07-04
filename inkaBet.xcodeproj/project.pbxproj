@@ -21,6 +21,9 @@
 		15D9A7942C346CDE00EFA0B5 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7932C346CDE00EFA0B5 /* StatView.swift */; };
 		15D9A7972C35773D00EFA0B5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7962C35773D00EFA0B5 /* ProfileViewController.swift */; };
 		15D9A7992C358B1E00EFA0B5 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7982C358B1E00EFA0B5 /* EditUserViewController.swift */; };
+		15D9A79C2C36CC9800EFA0B5 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A79B2C36CC9800EFA0B5 /* WorkoutViewController.swift */; };
+		15D9A79E2C36CE3C00EFA0B5 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A79D2C36CE3C00EFA0B5 /* Workout.swift */; };
+		15D9A7A02C36DEB300EFA0B5 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A79F2C36DEB300EFA0B5 /* NewWorkoutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		15D9A7932C346CDE00EFA0B5 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		15D9A7962C35773D00EFA0B5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		15D9A7982C358B1E00EFA0B5 /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
+		15D9A79B2C36CC9800EFA0B5 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		15D9A79D2C36CE3C00EFA0B5 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		15D9A79F2C36DEB300EFA0B5 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 		15D9A7682C3406D300EFA0B5 /* inkaBet */ = {
 			isa = PBXGroup;
 			children = (
+				15D9A79A2C36CC2300EFA0B5 /* Workour */,
 				15D9A7952C35772500EFA0B5 /* Profile */,
 				15D9A7902C3465E700EFA0B5 /* Statistics */,
 				15D9A78A2C34509400EFA0B5 /* TabBar */,
@@ -124,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				15D9A78E2C345FE800EFA0B5 /* User.swift */,
+				15D9A79D2C36CE3C00EFA0B5 /* Workout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +152,15 @@
 				15D9A7982C358B1E00EFA0B5 /* EditUserViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		15D9A79A2C36CC2300EFA0B5 /* Workour */ = {
+			isa = PBXGroup;
+			children = (
+				15D9A79B2C36CC9800EFA0B5 /* WorkoutViewController.swift */,
+				15D9A79F2C36DEB300EFA0B5 /* NewWorkoutViewController.swift */,
+			);
+			path = Workour;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,9 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D9A79C2C36CC9800EFA0B5 /* WorkoutViewController.swift in Sources */,
 				15D9A76A2C3406D300EFA0B5 /* AppDelegate.swift in Sources */,
 				15D9A7872C3415A000EFA0B5 /* ReviewerOnbViewController.swift in Sources */,
+				15D9A79E2C36CE3C00EFA0B5 /* Workout.swift in Sources */,
 				15D9A7972C35773D00EFA0B5 /* ProfileViewController.swift in Sources */,
+				15D9A7A02C36DEB300EFA0B5 /* NewWorkoutViewController.swift in Sources */,
 				15D9A7892C34399B00EFA0B5 /* NewUserViewController.swift in Sources */,
 				15D9A7992C358B1E00EFA0B5 /* EditUserViewController.swift in Sources */,
 				15D9A7942C346CDE00EFA0B5 /* StatView.swift in Sources */,

@@ -17,10 +17,10 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     init() {
         self.pages = [
-            OnboardingContentViewController(imageName: "one", text: "Train with GainsGuru App", pageCount: 4, currentPage: 0),
-            OnboardingContentViewController(imageName: "two", text: "Enter results and get achievements", pageCount: 4, currentPage: 1),
-            OnboardingContentViewController(imageName: "three", text: "Track progress towards your goals", pageCount: 4, currentPage: 2),
-            OnboardingContentViewController(imageName: "four", text: "Welcome to GainsGuru", pageCount: 4, currentPage: 3)
+            OnboardingContentViewController(imageName: "oneL", text: "Train with GainsGuru App", pageCount: 4, currentPage: 0),
+            OnboardingContentViewController(imageName: "twoL", text: "Enter results and get achievements", pageCount: 4, currentPage: 1),
+            OnboardingContentViewController(imageName: "threeL", text: "Track progress towards your goals", pageCount: 4, currentPage: 2),
+            OnboardingContentViewController(imageName: "fourL", text: "Welcome to GainsGuru", pageCount: 4, currentPage: 3)
         ]
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }

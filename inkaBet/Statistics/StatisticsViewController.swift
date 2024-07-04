@@ -18,8 +18,12 @@ class StatisticsViewController: UIViewController {
     
     var mainView: StatView?
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         hideNavigationBar()
+        mainView?.updateProgress()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

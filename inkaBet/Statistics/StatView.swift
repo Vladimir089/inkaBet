@@ -165,7 +165,7 @@ class StatView: UIView {
         
         kcalLabel = {
             let label = UILabel()
-            label.text = "\(kcalToday)"
+            label.text = "\(Int(kcalToday))"
             label.font = .systemFont(ofSize: 50, weight: .bold)
             label.textColor = .white
             
@@ -237,9 +237,16 @@ class StatView: UIView {
             make.bottom.equalToSuperview()
         }
         
+        var achivementCompleted = 0
+        for i in achivementArr {
+            if i == true {
+                achivementCompleted += 1
+            }
+        }
+        
         acivementsLabel = {
             let label = UILabel()
-            label.text = "\(achivementCompleted)/8"
+            label.text = "\(achivementCompleted)/7"
             label.textColor = UIColor(red: 42/255, green: 216/255, blue: 143/255, alpha: 1)
             label.font = .systemFont(ofSize: 17, weight: .regular)
             return label
@@ -276,6 +283,7 @@ class StatView: UIView {
             make.height.equalTo(6)
             make.bottom.equalToSuperview().inset(20)
         })
+        
         achivementProgress?.setProgress(Float(achivementCompleted / 8), animated: true)
         
         
@@ -308,10 +316,28 @@ class StatView: UIView {
             endProgressView?.alpha = 0
         }
         
-        kcalLabel?.text = "\(kcalToday)"
+        kcalLabel?.text = "\(Int(kcalToday))"
         dailyNormLabel?.text = "Daily norm: \(person?.norm ?? 0) Kcal"
-        acivementsLabel?.text = "\(achivementCompleted)/8"
-        achivementProgress?.setProgress(Float(achivementCompleted / 8), animated: true)
+        
+        
+        semiCircularProgressView.progress = kcalToday / CGFloat(person?.norm ?? 1)
+
+
+        var achivementCompleted = 0
+        for i in achivementArr {
+            if i == true {
+                achivementCompleted += 1
+            }
+        }
+        acivementsLabel?.text = "\(achivementCompleted)/7"
+        
+        let achFloat: Float = Float(achivementCompleted)
+
+        // Вычисление прогресса
+        let totalAchivements: Float = 7.0
+        let achProgress: Float = achFloat / totalAchivements
+
+        achivementProgress?.setProgress(achProgress, animated: true)
     }
     
     

@@ -16,10 +16,14 @@ class ProfileViewController: UIViewController {
     var imageProfileView: UIImageView?
     var nameLabel: UILabel?
     
+    var achLabel: UILabel?
+    
     var ageLabel, weightLabel, heightLabel, normLabel: UILabel?
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    var collection: UICollectionView?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateView()
     }
 
@@ -132,7 +136,57 @@ class ProfileViewController: UIViewController {
         stackViewTwo.addArrangedSubview(threeView)
         stackViewTwo.addArrangedSubview(fourView)
         
+        let labelAch: UILabel = {
+            let label = UILabel()
+            label.text = "ACHIEVEMENTS"
+            label.font = .systemFont(ofSize: 15, weight: .bold)
+            label.textColor = UIColor(red: 144/255, green: 152/255, blue: 163/255, alpha: 1)
+            return label
+        }()
+        view.addSubview(labelAch)
+        labelAch.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(15)
+            make.top.equalTo(stackViewTwo.snp.bottom).inset(-20)
+        }
         
+        achLabel = {
+            let label = UILabel()
+            
+            var achivementCompleted = 0
+            for i in achivementArr {
+                if i == true {
+                    achivementCompleted += 1
+                }
+            }
+            
+            label.text = "\(achivementCompleted)/7"
+            label.font = .systemFont(ofSize: 15, weight: .bold)
+            label.textColor = UIColor(red: 144/255, green: 152/255, blue: 163/255, alpha: 0.5)
+            return label
+        }()
+        view.addSubview(achLabel!)
+        achLabel?.snp.makeConstraints({ make in
+            make.left.equalTo(labelAch.snp.right).inset(-5)
+            make.top.equalTo(stackViewTwo.snp.bottom).inset(-20)
+        })
+        
+        collection = {
+            let layout = UICollectionViewFlowLayout()
+            let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            layout.scrollDirection = .horizontal
+            collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+            collection.delegate = self
+            collection.dataSource = self
+            collection.backgroundColor = .clear
+            collection.showsHorizontalScrollIndicator = false
+            return collection
+        }()
+        view.addSubview(collection!)
+        collection?.snp.makeConstraints({ make in
+            make.height.equalTo(171)
+            make.left.right.equalToSuperview().inset(15)
+            make.top.equalTo(labelAch.snp.bottom).inset(-15)
+        })
     }
     
     func updateView() {
@@ -144,6 +198,15 @@ class ProfileViewController: UIViewController {
         heightLabel?.text = "\(person?.height ?? 0)"
         normLabel?.text = "\(person?.norm ?? 0) "
         
+        
+        var achivementCompleted = 0
+        for i in achivementArr {
+            if i == true {
+                achivementCompleted += 1
+            }
+        }
+        achLabel?.text = "\(achivementCompleted)/7"
+        collection?.reloadData()
     }
     
     @objc func editPerosn() {
@@ -273,4 +336,75 @@ extension ProfileViewController: ProfileViewControllerDelegate {
     func saved() {
         updateView()
     }
+}
+
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imageArr.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.subviews.forEach { $0.removeFromSuperview() }
+        cell.backgroundColor = .BG
+        cell.layer.cornerRadius = 24
+        
+        
+        let image = imageArr[indexPath.row].resize(targetSize: CGSize(width: 82, height: 82))
+        var imageView = UIImageView(image: image)
+        
+        
+        cell.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.height.width.equalTo(82)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(20)
+        }
+        
+        
+        if achivementArr[indexPath.row] == false {
+            if let grayImage = applyGrayFilter(to: image) {
+                imageView.image = grayImage
+            }
+        }
+
+        
+        
+        
+        let label = UILabel()
+        label.text = textAchivArr[indexPath.row]
+        label.font = .systemFont(ofSize: 13, weight: .bold)
+        label.textColor = .white
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        cell.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(10)
+            make.top.equalTo(imageView.snp.bottom).inset(-15)
+        }
+        
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 154, height: 171)
+    }
+    
+    func applyGrayFilter(to image: UIImage) -> UIImage? {
+        let context = CIContext(options: nil)
+        if let currentFilter = CIFilter(name: "CIPhotoEffectMono") {
+            let beginImage = CIImage(image: image)
+            currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+            
+            if let output = currentFilter.outputImage,
+               let cgimg = context.createCGImage(output, from: output.extent) {
+                return UIImage(cgImage: cgimg)
+            }
+        }
+        return nil
+    }
+    
+    
 }
