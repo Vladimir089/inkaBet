@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1586BFF42C3801600098C526 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586BFF32C3801600098C526 /* SettingsViewController.swift */; };
 		15D9A76A2C3406D300EFA0B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A7692C3406D300EFA0B5 /* AppDelegate.swift */; };
 		15D9A76C2C3406D300EFA0B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9A76B2C3406D300EFA0B5 /* SceneDelegate.swift */; };
 		15D9A7732C3406D400EFA0B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D9A7722C3406D400EFA0B5 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1586BFF32C3801600098C526 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		15D9A7662C3406D300EFA0B5 /* inkaBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inkaBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D9A7692C3406D300EFA0B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D9A76B2C3406D300EFA0B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1586BFF22C3801530098C526 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1586BFF32C3801600098C526 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		15D9A75D2C3406D300EFA0B5 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		15D9A7682C3406D300EFA0B5 /* inkaBet */ = {
 			isa = PBXGroup;
 			children = (
+				1586BFF22C3801530098C526 /* Settings */,
 				15D9A7A12C372C9900EFA0B5 /* Acivements */,
 				15D9A79A2C36CC2300EFA0B5 /* Workour */,
 				15D9A7952C35772500EFA0B5 /* Profile */,
@@ -257,6 +268,7 @@
 				15D9A79E2C36CE3C00EFA0B5 /* Workout.swift in Sources */,
 				15D9A7972C35773D00EFA0B5 /* ProfileViewController.swift in Sources */,
 				15D9A7A02C36DEB300EFA0B5 /* NewWorkoutViewController.swift in Sources */,
+				1586BFF42C3801600098C526 /* SettingsViewController.swift in Sources */,
 				15D9A7892C34399B00EFA0B5 /* NewUserViewController.swift in Sources */,
 				15D9A7992C358B1E00EFA0B5 /* EditUserViewController.swift in Sources */,
 				15D9A7942C346CDE00EFA0B5 /* StatView.swift in Sources */,
@@ -411,6 +423,7 @@
 				DEVELOPMENT_TEAM = 6YA7577C98;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = inkaBet/Support/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GainsGuru;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -442,6 +455,7 @@
 				DEVELOPMENT_TEAM = 6YA7577C98;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = inkaBet/Support/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GainsGuru;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -45,8 +45,8 @@ class TabBarViewController: UITabBarController {
         
         let statVC = StatisticsViewController()
         let onetabItem = UITabBarItem(title: "", image: .stat.resize(targetSize: CGSize(width: 44, height: 44)), tag: 0)
-        onetabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
-        onetabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
+//        onetabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
+//        onetabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
         statVC.tabBarItem = onetabItem
         
         
@@ -60,27 +60,64 @@ class TabBarViewController: UITabBarController {
         
         let personVC = ProfileViewController()
         let twoTabItem = UITabBarItem(title: "", image: .person.resize(targetSize: CGSize(width: 20, height: 21)), tag: 1)
-        twoTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
-        twoTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
+//        twoTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
+//        twoTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
         personVC.tabBarItem = twoTabItem
         
         let workoutVC = WorkoutViewController()
         let threeTabItem = UITabBarItem(title: "", image: .work.resize(targetSize: CGSize(width: 23, height: 23)), tag: 1)
-        threeTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
-        threeTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
+//        threeTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
+//        threeTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
         workoutVC.tabBarItem = threeTabItem
         
         let achVC = AcivementsViewController()
         let fourTabItem = UITabBarItem(title: "", image: .cup.resize(targetSize: CGSize(width: 23, height: 23)), tag: 1)
-        fourTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
-        fourTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
+//        fourTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
+//        fourTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
         achVC.tabBarItem = fourTabItem
         
         
+        let setVC = SettingsViewController()
+        let fiveTabItem = UITabBarItem(title: "", image: .gear.resize(targetSize: CGSize(width: 23, height: 23)), tag: 1)
+//        fiveTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
+//        fiveTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
+        setVC.tabBarItem = fiveTabItem
         
-        viewControllers = [workoutVC, achVC, statVC, personVC, ]
+        
+        
+        viewControllers = [workoutVC, achVC, statVC, personVC, setVC]
         selectedIndex = 2
+        tabBar.selectionIndicatorImage = createSelectionIndicatorImage()
         
+    }
+    
+    
+    func createSelectionIndicatorImage() -> UIImage? {
+        // Размеры индикатора и отступ
+        let dotSize = CGSize(width: 6, height: 6)
+        let topPadding: CGFloat = 43
+        let totalSize = CGSize(width: dotSize.width, height: dotSize.height + topPadding)
+        
+        // Начало создания контекста изображения
+        UIGraphicsBeginImageContextWithOptions(totalSize, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        
+        // Заполняем верхнюю часть прозрачностью (необязательно, так как по умолчанию будет прозрачная)
+        context.setFillColor(UIColor.clear.cgColor)
+        context.fill(CGRect(x: 0, y: 0, width: totalSize.width, height: topPadding))
+        
+        // Создаем круглый индикатор размером 6x6
+        let dotRect = CGRect(x: 0, y: topPadding, width: dotSize.width, height: dotSize.height)
+        context.setFillColor(UIColor.primary.cgColor) // Установите цвет вашего индикатора
+        context.fillEllipse(in: dotRect)
+        
+        // Получаем изображение из контекста
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
     
     
