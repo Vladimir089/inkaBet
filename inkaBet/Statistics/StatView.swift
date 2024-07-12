@@ -286,11 +286,16 @@ class StatView: UIView {
         
         achivementProgress?.setProgress(Float(achivementCompleted / 8), animated: true)
         
-        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(openStat))
+        achivementView.addGestureRecognizer(gesture)
         
         
         
         updateProgress()
+    }
+    
+    @objc func openStat() {
+        delegate?.openVC(index: 1)
     }
     
     @objc func openWater() {

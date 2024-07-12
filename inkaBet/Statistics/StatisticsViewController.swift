@@ -12,12 +12,13 @@ import UIKit
 protocol StatisticsViewControllerDelegate: AnyObject {
     func openWater()
     func openSteps()
+    func openVC(index: Int)
 }
 
 class StatisticsViewController: UIViewController {
     
     var mainView: StatView?
-    
+    weak var delegate: TabBarViewControllerDelegate?
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +38,6 @@ class StatisticsViewController: UIViewController {
         mainView?.delegate = self
         self.view = mainView
         loadDataWaterAndSteps()
-        print(person)
     }
     
 
@@ -84,6 +84,10 @@ class StatisticsViewController: UIViewController {
 }
 
 extension StatisticsViewController: StatisticsViewControllerDelegate {
+    func openVC(index: Int) {
+        delegate?.openVC(index: index)
+    }
+    
     func openWater() {
         let alertController = UIAlertController(title: "Water", message: nil, preferredStyle: .alert)
         

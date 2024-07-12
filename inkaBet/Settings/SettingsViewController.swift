@@ -65,7 +65,7 @@ class SettingsViewController: UIViewController {
     //MARK: -objc
     
     @objc func shareApp() {
-        let appURL = URL(string: "МЕНЯЕМ")!
+        let appURL = URL(string: "https://apps.apple.com/app/gainsguru/id6526495618")!
         let activityViewController = UIActivityViewController(activityItems: [appURL], applicationActivities: nil)
         
         // Настройка для показа в виде popover на iPad
@@ -81,7 +81,7 @@ class SettingsViewController: UIViewController {
     
     @objc func policy() {
         let webVC = WebViewController()
-        webVC.urlString = "МЕНЯЕМ"
+        webVC.urlString = "https://www.termsfeed.com/live/20e7917c-4e12-44cf-9b01-da5f8cea8760"
         present(webVC, animated: true, completion: nil)
     }
     
@@ -90,7 +90,7 @@ class SettingsViewController: UIViewController {
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         } else {
-            if let url = URL(string: "МЕНЯЕМ") {
+            if let url = URL(string: "https://apps.apple.com/app/gainsguru/id6526495618") {
                 if UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }

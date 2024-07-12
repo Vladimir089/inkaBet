@@ -14,7 +14,7 @@ class LoadScreenViewController: UIViewController {
     var progressLabel: UILabel?
     var progress: Float = 0.0
     var timer: Timer?
-    let totalDuration: Float = 1.0 //МЕНЯТЬ менять
+    let totalDuration: Float = 0.0 //МЕНЯТЬ менять
 
 
     override func viewDidLoad() {

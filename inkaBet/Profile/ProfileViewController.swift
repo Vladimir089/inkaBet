@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController {
     
     var collection: UICollectionView?
     
+    weak var delegate: TabBarViewControllerDelegate?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateView()
@@ -54,6 +56,7 @@ class ProfileViewController: UIViewController {
             imageView.contentMode = .scaleAspectFill
             imageView.layer.cornerRadius = 45
             imageView.clipsToBounds = true
+            imageView.backgroundColor = .bgSecond
             return imageView
         }()
         view.addSubview(imageProfileView!)
@@ -187,6 +190,12 @@ class ProfileViewController: UIViewController {
             make.left.right.equalToSuperview().inset(15)
             make.top.equalTo(labelAch.snp.bottom).inset(-15)
         })
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(openAch))
+        collection?.addGestureRecognizer(gesture)
+    }
+    
+    @objc func openAch() {
+        delegate?.openVC(index: 1)
     }
     
     func updateView() {

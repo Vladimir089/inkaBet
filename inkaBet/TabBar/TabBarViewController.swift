@@ -20,7 +20,9 @@ var workArr: [Workout] = []
 
 //next
 
-
+protocol TabBarViewControllerDelegate: AnyObject {
+    func openVC(index: Int)
+}
 
 
 class TabBarViewController: UITabBarController {
@@ -48,7 +50,7 @@ class TabBarViewController: UITabBarController {
 //        onetabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
 //        onetabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
         statVC.tabBarItem = onetabItem
-        
+        statVC.delegate = self
         
         
         self.tabBar.backgroundColor = .BG
@@ -63,6 +65,7 @@ class TabBarViewController: UITabBarController {
 //        twoTabItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
 //        twoTabItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 7)
         personVC.tabBarItem = twoTabItem
+        personVC.delegate = self
         
         let workoutVC = WorkoutViewController()
         let threeTabItem = UITabBarItem(title: "", image: .work.resize(targetSize: CGSize(width: 23, height: 23)), tag: 1)
@@ -98,22 +101,18 @@ class TabBarViewController: UITabBarController {
         let topPadding: CGFloat = 43
         let totalSize = CGSize(width: dotSize.width, height: dotSize.height + topPadding)
         
-        // Начало создания контекста изображения
         UIGraphicsBeginImageContextWithOptions(totalSize, false, 0)
         guard let context = UIGraphicsGetCurrentContext() else {
             return nil
         }
         
-        // Заполняем верхнюю часть прозрачностью (необязательно, так как по умолчанию будет прозрачная)
         context.setFillColor(UIColor.clear.cgColor)
         context.fill(CGRect(x: 0, y: 0, width: totalSize.width, height: topPadding))
         
-        // Создаем круглый индикатор размером 6x6
         let dotRect = CGRect(x: 0, y: topPadding, width: dotSize.width, height: dotSize.height)
-        context.setFillColor(UIColor.primary.cgColor) // Установите цвет вашего индикатора
+        context.setFillColor(UIColor.primary.cgColor)
         context.fillEllipse(in: dotRect)
         
-        // Получаем изображение из контекста
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -170,4 +169,11 @@ class TabBarViewController: UITabBarController {
             }
         }
     }
+}
+
+
+extension TabBarViewController: TabBarViewControllerDelegate {
+    func openVC(index: Int) {
+        selectedIndex = index
+    }   
 }

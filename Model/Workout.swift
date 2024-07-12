@@ -25,3 +25,31 @@ struct Workout: Codable {
         self.dete = dete
     }
 }
+
+
+
+
+struct Plan: Codable {
+    var image: Data
+    var name: String
+    var execurse: [Execurse]
+    
+    init(image: Data, name: String, execurse: [Execurse]) {
+        self.image = image
+        self.name = name
+        self.execurse = execurse
+    }
+}
+
+
+struct Execurse: Codable {
+    var image: Data
+    var name: String
+    var explanation: String
+    
+    init(image: Data, name: String, explanation: String) {
+        self.image = image
+        self.name = name
+        self.explanation = explanation
+    }
+}
